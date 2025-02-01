@@ -1,7 +1,8 @@
 // "Vue" is a globally available object due to the import statement
 // from the CDN. Then we need to create the app.
 Vue.createApp({
-  // Inside of createApp, we should find an object named "data". The
+  // Inside of createApp, we should find an method named "data".
+  // It returns an object. That
   // object is used to configure the app. One key option is "data". The
   // naming is required to be "data". The value stored in the data
   // property is a function. That function is required to return an
@@ -12,7 +13,8 @@ Vue.createApp({
   // the view. That syntax is applied to the html elements.
   data() {
     return {
-      courseGoal: "Learn Vue!",
+      courseGoalA: "Learn Vue!",
+      courseGoalB: "Master Vue!",
       vueLink: "https://vuejs.org/",
     };
   },
@@ -25,9 +27,18 @@ Vue.createApp({
     outputGoal() {
       const randomNumber = Math.random();
       if (randomNumber < 0.5) {
-        return "Learn Vue!";
+        // The "this" keyword in this context is different from its javascript
+        // context. Here, in Vue, it takes all of the data you return in the data
+        // object (which is returned in the data method), and it merges it into
+        // a global Vue instance object. Like, the Vue app. So the three data
+        // properties above, are actually available from the global Vue app object.
+        // The methods are als available though the global object and have access
+        // to all of the properties through the "this" keyword.
+        return this.courseGoalA;
+        // return "Learn Vue!";
       } else {
-        return "Master Vue!";
+        return this.courseGoalB;
+        // return "Master Vue!";
       }
     },
     // So now that we've created our function, how do we call it?
