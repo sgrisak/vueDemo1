@@ -14,18 +14,25 @@
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals</h1>
+      <h1>Vue Events</h1>
     </header>
-    <section id="user-goal">
-      <h2>My Course Goals</h2>
-      <!-- The "{{ }}" is called interpolation. You use this syntax between tags and
-      you can show properties that are part of the object in the js file and the value 
-      of that property will be shown in the html. You can also use "v-bind" on attributes 
-      such as in an href in the html: <a v-bind:href='https://mylink.com'>. The 
-      shorthand for this is to actually leave the "v-bind" portion of it off as seen below.
-      -->
-      <p>{{ outputGoal() }}</p>
-      <p>Learn more <a :href="vueLink">about Vue</a>.</p>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!-- 
+      <button v-on:click="counter++">Add</button>
+      <button v-on:click="counter--">Remove</button>
+      .
+      <button v-on:click="add()">Add</button>
+      Could also be done as: v-on:click="add". In one we are calling the 
+      function and in this one we are actually referencing the function and just 
+      telling Vue what function it should run when someone clicks the button
+      <button v-on:click="subtract()">Remove</button> 
+      . -->
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="subtract(5)">Remove 5</button>
+      <p>Result: {{ counter }}</p>
+      <input type="text" v-on:input="setName" />
+      <p>Your Name: {{ name }}</p>
     </section>
   </body>
 </html>
