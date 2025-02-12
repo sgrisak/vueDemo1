@@ -2,10 +2,24 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: "",
+      name: "", // This is internally stored
+      confirmedName: "", // This is the submitted name
     };
   },
   methods: {
+    confirmName() {
+      this.confirmedName = this.name;
+    },
+    // Running the submit method below will re-render the entire page
+    // on submit. This is very not cool.
+    submitForm() {
+      alert("Submitted");
+      // So we have to add:
+      // event.preventDefault();
+      // However, instead of this, we can go over to
+      // the call on the index.html file and add a modifier to the
+      // event.
+    },
     // add() {
     //   this.counter = this.counter + 1;
     // },
