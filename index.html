@@ -29,10 +29,22 @@
       <button v-on:click="subtract()">Remove</button> 
       . -->
       <button v-on:click="add(10)">Add 10</button>
-      <button v-on:click="subtract(5)">Remove 5</button>
+      <!-- <button v-on:click="subtract(5)">Remove 5</button> -->
+      <button v-on:click.right="subtract(5)">Remove 5</button>
+      <!-- Adding ".right" 
+      means that the button will only function if we right-click it. -->
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName" />
-      <p>Your Name: {{ name }}</p>
+      <!-- <input type="text" v-on:input="setName($event, 'Grisak')" /> 
+      We can do this ^ if we need something outside of the default passed object-->
+      <!-- We can also pass more than one v-on. The second one below is set to only 
+      fire when the "enter" key is pressed and released. -->
+      <input type="text" v-on:input="setName" v-on:keyup.enter="confirmName" />
+      <p>Your Name: {{ confirmedName }}</p>
+      <!-- <form v-on:submit="submitForm"> -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
