@@ -38,13 +38,23 @@
       We can do this ^ if we need something outside of the default passed object-->
       <!-- We can also pass more than one v-on. The second one below is set to only 
       fire when the "enter" key is pressed and released. -->
-      <input type="text" v-on:input="setName" v-on:keyup.enter="confirmName" />
+      <input
+        type="text"
+        placeholder="Enter your name"
+        v-on:input="setName"
+        v-on:keyup.enter="confirmName"
+      />
       <p>Your Name: {{ confirmedName }}</p>
       <!-- <form v-on:submit="submitForm"> -->
       <form v-on:submit.prevent="submitForm">
-        <input type="text" />
         <button>Sign Up</button>
       </form>
+      <p>
+        In the above example, The add button works as normal. The subtract
+        button should only work on right-clicks. The name can only be submitted
+        on clicking 'Enter'. and the 'Submit' button has a 'prevent' modifier
+        which keeps the page from reloading and state should remain the same.
+      </p>
     </section>
   </body>
 </html>
